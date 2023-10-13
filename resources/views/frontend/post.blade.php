@@ -13,8 +13,12 @@
                     <img src="{{ asset("storage/$post->image") }}" width="1000" height="500">
                 @endif
                 <div class="bg-white flex flex-col justify-start p-6">
-                    <a href="{{ route('category.show', $post->category->slug) }}"
-                        class="text-blue-700 text-sm font-bold uppercase pb-4">{{ $post->category->name }}</a>
+                    <p> Category :
+                        <a href="{{ route('category.show', $post->category->slug) }}"
+                            class="text-blue-700 text-sm font-bold uppercase pb-4">
+                            {{ $post->category->name }}
+                        </a>
+                    </p>
                     <div class="text-3xl font-bold pb-4">{{ $post->title }}</div>
                     <p href="#" class="text-sm pb-8">
                         By <a href="#" class="font-semibold hover:text-blue-800">{{ $post->user->name }}</a>,
@@ -55,9 +59,11 @@
             <div class="w-full flex flex-col text-center md:text-left md:flex-row shadow bg-white mt-10 mb-10 p-6">
                 <div class="w-full md:w-1/5 flex justify-center md:justify-start pb-4">
                     @if ($post->user->avatar == null)
-                    <img src="{{ asset('import/assets/profile-pic-dummy.png') }}" class="rounded-full shadow h-32 w-32">
+                        <img src="{{ asset('import/assets/profile-pic-dummy.png') }}"
+                            class="rounded-full shadow h-32 w-32">
                     @else
-                    <img src="{{ asset("storage"). '/' . $post->user->avatar }}" class="rounded-full shadow h-32 w-32">
+                        <img src="{{ asset('storage') . '/' . $post->user->avatar }}"
+                            class="rounded-full shadow h-32 w-32">
                     @endif
                 </div>
                 <div class="flex-1 flex flex-col justify-center md:justify-start">

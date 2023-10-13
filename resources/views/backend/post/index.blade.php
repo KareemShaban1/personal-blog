@@ -2,12 +2,12 @@
 
     <div class="w-full h-screen overflow-x-hidden border-t flex flex-col">
         <main class="w-full flex-grow p-6">
-            <h1 class="w-full text-3xl text-black pb-6">Posts</h1>
+            <h1 class="w-full text-3xl text-black pb-6"> {{ trans('post_trans.Posts') }} </h1>
 
             <div class="w-full mt-12">
-                <p class="text-xl pb-3 flex items-center">
+                {{-- <p class="text-xl pb-3 flex items-center">
                     <i class="fas fa-list mr-3"></i> Posts Records
-                </p>
+                </p> --}}
                 @can('create', 'App\Models\Post')
                     <button class="px-4 py-1 text-white font-light tracking-wider bg-blue-600 rounded mb-2"
                         onclick="location.href='{{ route('backend.post.create') }}';">Add Post</button>
@@ -18,22 +18,22 @@
                             <tr>
                                 <th
                                     class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">
-                                    ID</th>
+                                    {{ trans('post_trans.Id') }}</th>
                                 <th
                                     class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">
-                                    Title</th>
+                                    {{ trans('post_trans.Title') }}</th>
                                 <th
                                     class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">
-                                    Category</th>
+                                    {{ trans('post_trans.Category') }}</th>
                                 <th
                                     class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">
-                                    Tags</th>
+                                    {{ trans('post_trans.Tags') }}</th>
                                 <th
                                     class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">
-                                    Added by</th>
+                                    {{ trans('post_trans.Added_By') }}</th>
                                 <th
                                     class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">
-                                    Manage</th>
+                                    {{ trans('post_trans.Manage') }}</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -52,7 +52,7 @@
                                                         {{ $tag->name }}</div>
                                                 </a>
                                             @empty
-                                                No Tags !
+                                                {{ trans('post_trans.No_Tags') }}
                                             @endforelse
                                         </div>
                                     </td>
@@ -62,7 +62,7 @@
                                             <button
                                                 class="px-4 py-1 text-white font-light tracking-wider bg-green-600 rounded"
                                                 type="button"
-                                                onclick="location.href='{{ route('backend.post.edit', $post->id) }}';">Edit</button>
+                                                onclick="location.href='{{ route('backend.post.edit', $post->id) }}';">{{ trans('post_trans.Edit') }}</button>
                                         @endcan
                                         @can('delete', $post)
                                             <form type="submit" method="POST" style="display: inline"
@@ -72,7 +72,7 @@
                                                 @method('DELETE')
                                                 <button
                                                     class="px-4 py-1 text-white font-light tracking-wider bg-red-600 rounded"
-                                                    type="submit">Delete</button>
+                                                    type="submit">{{ trans('post_trans.Delete') }}</button>
                                             </form>
                                         @endcan
 

@@ -26,12 +26,12 @@ class UpdateSettingRequest extends FormRequest
         return [
             'site_name' => ['required', 'min:3', 'max:20'],
             'description' => ['required', 'min:3', 'max:255'],
-            'about' => ['required', 'min:3', 'max:255'],
+            'about' => ['required', 'min:3'],
             'copy_rights' => ['required', 'min:3'],
-            'url_fb' => ['required', 'url'],
-            'url_insta' => ['required', 'url'],
-            'url_twitter' => ['required', 'url'],
-            'url_linkedin' => ['required', 'url'],
+            // 'url_fb' => ['required', 'url'],
+            // 'url_insta' => ['required', 'url'],
+            // 'url_twitter' => ['required', 'url'],
+            // 'url_linkedin' => ['required', 'url'],
         ];
     }
 }

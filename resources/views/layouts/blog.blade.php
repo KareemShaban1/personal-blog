@@ -4,7 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@isset($title) {{ ucfirst($title) }} -@endisset {{ config('app.name') }}</title>
+    <title>
+        @isset($title)
+            {{ ucfirst($title) }} -
+        @endisset {{ config('app.name') }}
+    </title>
     <!-- Tailwind -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <style>
@@ -23,7 +27,7 @@
         integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
 
 
-    </head>
+</head>
 
 <body class="bg-white font-family-karla">
 
@@ -35,22 +39,22 @@
                 <ul class="flex items-center justify-between font-bold text-sm text-white uppercase no-underline">
                     @foreach ($pages_nav as $page)
                         <li><a class="hover:text-gray-200 hover:underline px-4"
-                                href="{{ route('page.show',$page->slug) }}">{{ $page->name }}</a></li>
+                                href="{{ route('page.show', $page->slug) }}">{{ $page->name }}</a></li>
                     @endforeach
                 </ul>
             </nav>
 
             <div class="flex items-center text-lg no-underline text-white pr-6">
-                <a class="" href="{{ $setting->url_fb ?? " " }}"  >
+                <a class="" href="{{ $setting->url_fb ?? ' ' }}">
                     <i class="fab fa-facebook"></i>
                 </a>
-                <a class="pl-6" href="{{ $setting->url_insta ?? " "}}">
+                <a class="pl-6" href="{{ $setting->url_insta ?? ' ' }}">
                     <i class="fab fa-instagram"></i>
                 </a>
-                <a class="pl-6" href="{{ $setting->url_twitter ?? " " }}">
+                <a class="pl-6" href="{{ $setting->url_twitter ?? ' ' }}">
                     <i class="fab fa-twitter"></i>
                 </a>
-                <a class="pl-6" href="{{ $setting->url_linkedin ?? " " }}">
+                <a class="pl-6" href="{{ $setting->url_linkedin ?? ' ' }}">
                     <i class="fab fa-linkedin"></i>
                 </a>
             </div>
@@ -100,35 +104,33 @@
 
         <!-- Sidebar Section -->
         @if (!request()->routeIs('page.show'))
-        <aside class="w-full md:w-1/3 flex flex-col items-center px-3">
+            <aside class="w-full md:w-1/3 flex flex-col items-center px-3">
 
-            <div class="w-full bg-white shadow flex flex-col my-4 p-6">
-                <p class="text-xl font-semibold pb-5">About Me</p>
-                <p class="pb-2">{{ $setting->about }}</p>
-                {{-- <a href="#"
+                <div class="w-full bg-white shadow flex flex-col my-4 p-6">
+                    <p class="text-xl font-semibold pb-5">👋 About Me</p>
+                    <p class="pb-2">{{ $setting->about }}</p>
+                    {{-- <a href="#"
                     class="w-full bg-blue-800 text-white font-bold text-sm uppercase rounded hover:bg-blue-700 flex items-center justify-center px-2 py-3 mt-4">
                     Get to know us
                 </a> --}}
-            </div>
-
-            <div class="w-full bg-white shadow flex flex-col my-4 p-6">
-                <p class="text-xl font-semibold pb-5">Tags</p>
-                <div class="flex flex-wrap">
-
-                    @foreach ($tags as $tag)
-
-                    <a href="{{ route('tag.show', $tag->name) }}"
-                        class="flex justify-center items-center m-1 font-medium py-1 px-2 bg-white rounded-full text-blue-700 bg-blue-100 border border-blue-300 ">
-                        <div class="p-1.5 text-xs font-normal leading-none max-w-full flex-initial">
-                            {{ $tag->name }}</div>
-                    </a>
-
-                    @endforeach
-
                 </div>
-            </div>
 
-            {{-- <div class="w-full bg-white shadow flex flex-col my-4 p-6">
+                <div class="w-full bg-white shadow flex flex-col my-4 p-6">
+                    <p class="text-xl font-semibold pb-5">Tags</p>
+                    <div class="flex flex-wrap">
+
+                        @foreach ($tags as $tag)
+                            <a href="{{ route('tag.show', $tag->name) }}"
+                                class="flex justify-center items-center m-1 font-medium py-1 px-2 bg-white rounded-full text-blue-700 bg-blue-100 border border-blue-300 ">
+                                <div class="p-1.5 text-xs font-normal leading-none max-w-full flex-initial">
+                                    {{ $tag->name }}</div>
+                            </a>
+                        @endforeach
+
+                    </div>
+                </div>
+
+                {{-- <div class="w-full bg-white shadow flex flex-col my-4 p-6">
                 <p class="text-xl font-semibold pb-5">Top 5 Writers</p>
                 <div class="content flex justify-between py-2 w-full">
                     <div class="px-2 justify-between">
@@ -160,14 +162,13 @@
                 @endforelse
             </div> --}}
 
-        </aside>
+            </aside>
         @endif
 
 
     </div>
 
     <footer class="w-full border-t bg-white pb-12">
-
         <div class="w-full container mx-auto flex flex-col items-center">
             <div class="flex flex-col md:flex-row text-center md:text-left md:justify-between py-6">
                 @foreach ($pages_footer as $page)

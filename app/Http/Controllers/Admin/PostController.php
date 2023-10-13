@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
+use App\Http\Traits\UploadImageTrait;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\Tag;
@@ -15,6 +16,8 @@ use Illuminate\Support\Str;
 
 class PostController extends Controller
 {
+
+    use UploadImageTrait;
     public function __construct()
     {
         $this->authorizeResource(Post::class, 'post');
@@ -52,9 +55,11 @@ class PostController extends Controller
     {
         $post_data = $request->safe()->except('image');
 
-        if ($request->hasfile('image')) {
-            $get_file = $request->file('image')->store('images/posts');
-            $post_data['image'] = $get_file;
+        if ($request->hasFile('image')) {
+            
+            // $get_file = $request->file('image')->store('images/posts');
+            // $post_data['image'] = $get_file;
+            $post_data['image']  = $this->ProcessImage($request,'image','posts');
         }
 
         $post_data['user_id'] = Auth()->user()->id;
@@ -95,7 +100,7 @@ class PostController extends Controller
     {
         $post_data = $request->safe()->except('image');
 
-        if ($request->hasfile('image')) {
+        if ($request->hasFile('image')) {
             Storage::delete($post->image);
             $get_file = $request->file('image')->store('images/posts');
             $post_data['image'] = $get_file;
