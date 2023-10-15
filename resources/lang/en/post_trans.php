@@ -24,7 +24,7 @@ return [
           'Slug' => 'Slug',
           'Update_Post' => 'Update Post',
           'No_Tags' => 'No Tags',
-      
+          'Post_Views' => 'Post Views',
           '' => '',
           '' => '',
           '' => '',

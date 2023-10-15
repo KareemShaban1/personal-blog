@@ -30,6 +30,8 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::with(['category', 'user', 'tags'])->orderByDesc('id')->paginate(15);
+        
+        
         return view('backend.post.index', compact('posts'));
     }
 

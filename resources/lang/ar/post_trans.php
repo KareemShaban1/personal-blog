@@ -24,7 +24,7 @@ return [
           'Slug' => 'Slug',
           'Update_Post' => 'تعديل البوست',
           'No_Tags' => 'No Tags',
-          '' => '',
+          'Post_Views' => 'مشاهدات البوست',
           '' => '',
           '' => '',
           '' => '',

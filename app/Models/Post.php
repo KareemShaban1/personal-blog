@@ -6,11 +6,14 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Casts\Attribute;
+use CyrildeWit\EloquentViewable\InteractsWithViews;
+use CyrildeWit\EloquentViewable\Contracts\Viewable;
 
-
-class Post extends Model
+class Post extends Model implements Viewable
 {
+    use InteractsWithViews;
     use HasFactory;
+    
     protected $fillable = ['title', 'content', 'image', 'cat_id', 'user_id', 'slug', 'status'];
 
     protected function createdAt(): Attribute

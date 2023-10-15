@@ -27,6 +27,9 @@
                                     {{ trans('post_trans.Category') }}</th>
                                 <th
                                     class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">
+                                    {{ trans('post_trans.Post_Views') }}</th>
+                                <th
+                                    class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">
                                     {{ trans('post_trans.Tags') }}</th>
                                 <th
                                     class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">
@@ -38,10 +41,16 @@
                         </thead>
                         <tbody>
                             @foreach ($posts as $post)
+                                @php
+                                    $post_view = views($post)
+                                        ->unique()
+                                        ->count();
+                                @endphp
                                 <tr class="hover:bg-grey-lighter">
                                     <td class="py-4 px-6 border-b border-grey-light">{{ $post->id }}</td>
                                     <td class="py-4 px-6 border-b border-grey-light">{{ $post->title }}</td>
                                     <td class="py-4 px-6 border-b border-grey-light">{{ $post->category->name }}</td>
+                                    <td>{{ $post_view }}</td>
                                     <td class="py-4 px-6 border-b border-grey-light">
                                         <div class="flex flex-wrap">
                                             @forelse ($post->tags as $tag)
