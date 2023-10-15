@@ -1,19 +1,25 @@
 <x-admin-layout>
 
+    @push('styles')
+    @endpush
+
     <div class="w-full h-screen overflow-x-hidden border-t flex flex-col">
         <main class="w-full flex-grow p-6">
-            <h1 class="w-full text-3xl text-black pb-6"> {{ trans('post_trans.Posts') }} </h1>
+            <h1 class="w-full text-3xl text-black"> {{ trans('post_trans.Posts') }} </h1>
 
-            <div class="w-full mt-12">
+            <div class="w-full mt-5">
                 {{-- <p class="text-xl pb-3 flex items-center">
                     <i class="fas fa-list mr-3"></i> Posts Records
                 </p> --}}
                 @can('create', 'App\Models\Post')
                     <button class="px-4 py-1 text-white font-light tracking-wider bg-blue-600 rounded mb-2"
-                        onclick="location.href='{{ route('backend.post.create') }}';">Add Post</button>
+                        onclick="location.href='{{ route('backend.post.create') }}';">
+                        {{ trans('post_trans.Add_Post') }}
+                    </button>
                 @endcan
-                <div class="bg-white overflow-auto">
-                    <table class="text-left w-full border-collapse">
+                <div class="bg-white p-5">
+
+                    <table id="table_id" class="w-full border-collapse ">
                         <thead>
                             <tr>
                                 <th
@@ -50,7 +56,7 @@
                                     <td class="py-4 px-6 border-b border-grey-light">{{ $post->id }}</td>
                                     <td class="py-4 px-6 border-b border-grey-light">{{ $post->title }}</td>
                                     <td class="py-4 px-6 border-b border-grey-light">{{ $post->category->name }}</td>
-                                    <td>{{ $post_view }}</td>
+                                    <td class="py-4 px-6 border-b border-grey-light">{{ $post_view }}</td>
                                     <td class="py-4 px-6 border-b border-grey-light">
                                         <div class="flex flex-wrap">
                                             @forelse ($post->tags as $tag)
@@ -91,8 +97,14 @@
                             @endforeach
                         </tbody>
                     </table>
+
+
                 </div>
-                {!! $posts->links() !!}
+                {{-- {!! $posts->links() !!} --}}
+
         </main>
     </div>
+
+    @push('scripts')
+    @endpush
 </x-admin-layout>

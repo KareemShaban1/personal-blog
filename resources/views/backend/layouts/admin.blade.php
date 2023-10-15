@@ -19,6 +19,12 @@
         <link href="{{ URL::asset('backend/css/rtl_style.css') }}" rel="stylesheet">
     @endif
 
+    @if (request()->routeIs('*.*.index') || request()->routeIs('*.admin.*'))
+        <link rel="stylesheet" href="{{ asset('backend/datatables/datatables.min.css') }}">
+
+        <link rel="stylesheet" href="{{ asset('backend/datatables/jquery.dataTables.min.css') }}">
+    @endif
+
     <style>
         @import url(https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.min.css);
 
@@ -292,6 +298,7 @@
         crossorigin="anonymous"></script>
 
 
+
     @if (request()->routeIs('*.post.create') || request()->routeIs('*.post.edit'))
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
             integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
@@ -414,14 +421,21 @@
     <script src="{{ asset('backend/js/custom.js') }}"></script>
 
 
-    <script>
-        $('.summernote').summernote({
-            airMode: true
-        });
-    </script>
+
+    @if (request()->routeIs('*.*.index') || request()->routeIs('*.admin.*'))
+        <script src="{{ asset('backend/datatables/datatables.min.js') }}"></script>
+        <script>
+            $(document).ready(function() {
+                $('#table_id').DataTable();
+            });
+        </script>
+    @endif
+
+
 
 
     @stack('scripts')
+
 
 </body>
 

@@ -2,16 +2,16 @@
 
     <div class="w-full h-screen overflow-x-hidden border-t flex flex-col">
         <main class="w-full flex-grow p-6">
-            <h1 class="w-full text-3xl text-black pb-6">{{ trans('page_trans.Pages') }}</h1>
+            <h1 class="w-full text-3xl text-black">{{ trans('page_trans.Pages') }}</h1>
 
-            <div class="w-full mt-12">
+            <div class="w-full mt-5">
                 {{-- <p class="text-xl pb-3 flex items-center">
                     <i class="fas fa-list mr-3"></i> Pages Records
                 </p> --}}
                 <button class="px-4 py-1 text-white font-light tracking-wider bg-blue-600 rounded mb-2"
                     onclick="location.href='{{ route('backend.page.create') }}';">{{ trans('page_trans.Add_Page') }}</button>
-                <div class="bg-white overflow-auto">
-                    <table class="text-left w-full border-collapse">
+                <div class="bg-white p-5 overflow-auto">
+                    <table id="table_id" class="text-left w-full border-collapse">
                         <thead>
                             <tr>
                                 <th
