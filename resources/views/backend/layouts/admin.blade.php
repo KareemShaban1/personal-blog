@@ -299,7 +299,7 @@
 
 
 
-    @if (request()->routeIs('*.post.create') || request()->routeIs('*.post.edit'))
+    @if (request()->routeIs('*.post.create') || request()->routeIs('*.post.edit') || request()->routeIs('*.admin.setting'))
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
             integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
             crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -310,15 +310,6 @@
                 placeholder: 'Hello ..!',
                 tabsize: 2,
                 height: 120,
-                // toolbar: [
-                //     ['style', ['style']],
-                //     ['font', ['bold', 'underline', 'clear']],
-                //     ['color', ['color']],
-                //     ['para', ['ul', 'ol', 'paragraph']],
-                //     ['table', ['table']],
-                //     ['insert', ['link', 'video']],
-                //     ['view', ['codeview', 'help']]
-                // ]
             });
         </script>
 
