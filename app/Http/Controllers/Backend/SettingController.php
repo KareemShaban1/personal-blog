@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UpdateSettingRequest;
@@ -13,7 +13,7 @@ class SettingController extends Controller
     {
         $setting = Setting::first();
 
-        return view('backend.setting.index', compact('setting'));
+        return view('backend.pages.setting.index', compact('setting'));
     }
 
     public function update(UpdateSettingRequest $request, Setting $setting){

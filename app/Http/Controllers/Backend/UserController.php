@@ -1,13 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\UpdateAccountRequest;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
@@ -19,7 +17,7 @@ class UserController extends Controller
     public function index()
     {
         $users = User::with('role')->orderBy('id', 'desc')->paginate(15);
-        return view('backend.user.index', compact('users'));
+        return view('backend.pages.user.index', compact('users'));
     }
 
     /**
@@ -31,7 +29,7 @@ class UserController extends Controller
     public function edit(User $user)
     {
         $roles = Role::all();
-        return view('backend.user.edit', compact('user', 'roles'));
+        return view('backend.pages.user.edit', compact('user', 'roles'));
     }
 
     /**

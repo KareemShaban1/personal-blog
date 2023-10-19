@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
@@ -17,6 +17,6 @@ class AdminController extends Controller
         $tags = Tag::count();
         $users = User::count();
 
-        return view('backend.index', compact('categories', 'posts', 'tags', 'users'));
+        return view('backend.pages.index', compact('categories', 'posts', 'tags', 'users'));
     }
 }

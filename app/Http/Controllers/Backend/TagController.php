@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreTagRequest;
@@ -18,7 +18,7 @@ class TagController extends Controller
     public function index()
     {
         $tags = Tag::with('posts')->get();
-        return view('backend.tag.index', compact('tags'));
+        return view('backend.pages.tag.index', compact('tags'));
     }
 
     /**
@@ -28,7 +28,7 @@ class TagController extends Controller
      */
     public function create()
     {
-        return view('backend.tag.create');
+        return view('backend.pages.tag.create');
     }
 
     /**
@@ -53,7 +53,7 @@ class TagController extends Controller
      */
     public function edit(Tag $tag)
     {
-        return view('backend.tag.edit', compact('tag'));
+        return view('backend.pages.tag.edit', compact('tag'));
     }
 
     /**

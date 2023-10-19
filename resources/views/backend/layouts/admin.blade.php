@@ -109,6 +109,13 @@
                     {{ trans('admin_layout_trans.Settings') }}
 
                 </a>
+
+                <a href="{{ route('backend.metaData.index') }}"
+                    class="{{ request()->routeIs('*.metaData.*') ? 'active-nav-link' : 'opacity-75 hover:opacity-100' }} flex items-center text-white  py-4  nav-item">
+                    <i class="fas fa-wrench mr-3 link-icon"></i>
+                    {{ trans('admin_layout_trans.MetaData') }}
+
+                </a>
             @endcan
         </nav>
         <form method="POST" action="{{ route('logout') }}">

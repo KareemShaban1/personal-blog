@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StorePageRequest;
@@ -14,12 +14,12 @@ class PageController extends Controller
     public function index(){
 
         $pages = Page::with('user')->orderBy('id', 'desc')->paginate(15);
-        return view('backend.page.index', compact('pages'));
+        return view('backend.pages.page.index', compact('pages'));
     }
 
     public function create(){
 
-        return view('backend.page.create');
+        return view('backend.pages.page.create');
     }
 
     public function store(StorePageRequest $request){
@@ -35,7 +35,7 @@ class PageController extends Controller
 
     public function edit(Page $page){
 
-        return view('backend.page.edit', compact('page'));
+        return view('backend.pages.page.edit', compact('page'));
     }
 
     public function update(UpdatePageRequest $request , $id){

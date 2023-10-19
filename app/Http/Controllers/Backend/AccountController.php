@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UpdateAccountRequest;
@@ -17,7 +17,7 @@ class AccountController extends Controller
     public function index()
     {
         $user = Auth()->user();
-        return view('backend.account.index', compact('user'));
+        return view('backend.pages.account.index', compact('user'));
     }
 
 

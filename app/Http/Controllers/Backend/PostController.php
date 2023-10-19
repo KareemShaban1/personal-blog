@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StorePostRequest;
@@ -32,7 +32,7 @@ class PostController extends Controller
         $posts = Post::with(['category', 'user', 'tags'])->orderByDesc('id')->paginate(15);
         
         
-        return view('backend.post.index', compact('posts'));
+        return view('backend.pages.post.index', compact('posts'));
     }
 
     /**
@@ -44,7 +44,7 @@ class PostController extends Controller
     {
         $categories = Category::all();
         $tags = Tag::all();
-        return view('backend.post.create', compact('categories', 'tags'));
+        return view('backend.pages.post.create', compact('categories', 'tags'));
     }
 
     /**
@@ -88,7 +88,7 @@ class PostController extends Controller
     {
         $categories = Category::all();
         $tags = Tag::all();
-        return view('backend.post.edit', compact('post', 'categories', 'tags'));
+        return view('backend.pages.post.edit', compact('post', 'categories', 'tags'));
     }
 
     /**
@@ -151,7 +151,7 @@ class PostController extends Controller
         ->paginate(10);
 
     // Return the search view with the resluts
-    return view('backend.post.search', compact('posts'));
+    return view('backend.pages.post.search', compact('posts'));
 
     }
 }

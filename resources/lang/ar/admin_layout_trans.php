@@ -14,7 +14,7 @@ return [
           'Statistics'=>'الأحصائيات',
           'Search'=>'البحث',
           'Sign Out'=>'تسجيل خروج',
-          ''=>'',
+          'MetaData'=>'Meta Data',
           ''=>'',
           ''=>'',
           ''=>'',

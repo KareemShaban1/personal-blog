@@ -14,7 +14,7 @@ return [
           'Statistics'=>'Statistics',
           'Search'=>'Search',
           'Sign Out'=>'Sign Out',
-          ''=>'',
+          'MetaData'=>'Meta Data',
           ''=>'',
           ''=>'',
           ''=>'',

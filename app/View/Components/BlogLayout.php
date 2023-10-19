@@ -39,6 +39,6 @@ class BlogLayout extends Component
             $q->where('status', 'like', '1');
         })->get();
         
-        return view('layouts.blog', compact('categories', 'top_users', 'setting', 'pages_nav', 'pages_footer', 'tags'));
+        return view('frontend.layouts.blog', compact('categories', 'top_users', 'setting', 'pages_nav', 'pages_footer', 'tags'));
     }
 }

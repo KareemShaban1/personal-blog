@@ -1,14 +1,15 @@
 <?php
 
-use App\Http\Controllers\Admin\AccountController;
-use App\Http\Controllers\Admin\AdminController;
-use App\Http\Controllers\Admin\CategoryController;
-use App\Http\Controllers\Admin\PageController;
-use App\Http\Controllers\Admin\PostController;
-use App\Http\Controllers\Admin\RoleController;
-use App\Http\Controllers\Admin\SettingController;
-use App\Http\Controllers\Admin\TagController;
-use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Backend\AccountController;
+use App\Http\Controllers\Backend\AdminController;
+use App\Http\Controllers\Backend\CategoryController;
+use App\Http\Controllers\Backend\MetaDataController;
+use App\Http\Controllers\Backend\PageController;
+use App\Http\Controllers\Backend\PostController;
+use App\Http\Controllers\Backend\RoleController;
+use App\Http\Controllers\Backend\SettingController;
+use App\Http\Controllers\Backend\TagController;
+use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\ProfileController;
 use App\Http\Controllers\Frontend\PostController as FrontPostController;
@@ -67,6 +68,13 @@ Route::group([
             Route::resource('/page', PageController::class);
             Route::resource('/role', RoleController::class, ['only' => ['index']]);
             Route::resource('/setting', SettingController::class, ['only' => ['index', 'update']]);
+            Route::group([],function () {
+                Route::get('/metaData',[MetaDataController::class,'index'])->name('metaData.index');
+                Route::get('/add_metaData',[MetaDataController::class,'create'])->name('metaData.create');
+                Route::post('/store_metaData',[MetaDataController::class,'store'])->name('metaData.store');
+                Route::get('/edit_metaData/{id}',[MetaDataController::class,'edit'])->name('metaData.edit');
+                Route::put('/update_metaData/{id}',[MetaDataController::class,'update'])->name('metaData.update');
+            });
         });
     });
 
