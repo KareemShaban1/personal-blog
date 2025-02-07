@@ -8,11 +8,12 @@
             <article class="flex flex-col shadow my-4">
                 <a href="{{ route('post.show', $post->slug) }}" class="hover:opacity-75">
                     {{-- just for testing --}}
-                    @if ($post->image == 'dummy.jpg')
+                    {{-- @if ($post->image == 'dummy.jpg')
                         <img src="{{ asset('import/assets/post-pic-dummy.png') }}" width="1000" height="500">
                     @else
                         <img src="{{ asset("storage/images/posts/$post->image") }}" width="1000" height="500">
-                    @endif
+                    @endif --}}
+                    <img src="{{ $post->image_url }}" alt="">
                 </a>
                 <div class="bg-white flex flex-col justify-start p-6">
                     <a href="{{ route('category.show', $post->category->slug) }} "
@@ -24,6 +25,7 @@
                         Published on {{ $post->created_at }}
                     </p>
                     <p class="pb-3">{!! substr($post->content, 0, 100) !!} ...</p>
+
                     {{-- <br /> --}}
                     <a href="{{ route('post.show', $post->slug) }}"
                         class="mt-px uppercase text-gray-800 font-bold hover:text-black">Continue Reading <i

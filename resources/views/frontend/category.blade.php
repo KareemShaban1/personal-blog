@@ -10,7 +10,7 @@
                     @if ($post->image == 'dummy.jpg')
                         <img src="{{ asset('import/assets/post-pic-dummy.png') }}">
                     @else
-                        <img src="{{ asset("storage/$post->image") }}" width="1000" height="500">
+                        <img src="{{ $post->image_url }}" width="1000" height="500">
                     @endif
                 </a>
                 <div class="bg-white flex flex-col justify-start p-6">

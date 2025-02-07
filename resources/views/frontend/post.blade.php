@@ -7,11 +7,12 @@
 
             <article class="flex flex-col shadow my-4">
                 <!-- Article Image -->
-                @if ($post->image == 'dummy.jpg')
+                {{-- @if ($post->image == 'dummy.jpg')
                     <img src="{{ asset('import/assets/post-pic-dummy.png') }}">
                 @else
                     <img src="{{ asset("storage/$post->image") }}" width="1000" height="500">
-                @endif
+                @endif --}}
+                <img src="{{ $post->image_url }}" alt="">
                 <div class="bg-white flex flex-col justify-start p-6">
                     <p> Category :
                         <a href="{{ route('category.show', $post->category->slug) }}"

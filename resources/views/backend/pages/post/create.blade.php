@@ -72,8 +72,15 @@
                             for="message">{{ trans('post_trans.Message') }}</label>
                         <textarea id="summernote"
                             class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            id="message" name="content" required="">{{ old('content') }}</textarea>
+                            name="content">{{ old('content') }}</textarea>
                     </div>
+                    {{-- <div class="mb-2">
+                        <label class="block text-sm text-gray-600"
+                            for="message">{{ trans('post_trans.Message') }}</label>
+                        <textarea
+                            class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            id="message" name="content">{{ old('content') }}</textarea>
+                    </div> --}}
                     <button type="submit"
                         class="px-4 py-1 text-white font-light tracking-wider bg-blue-600 rounded">{{ trans('post_trans.Add_Post') }}</button>
                 </form>

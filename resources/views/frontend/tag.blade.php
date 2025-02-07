@@ -10,7 +10,7 @@
                     @if ($post->image == 'dummy.jpg')
                     <img src="{{ asset('import/assets/post-pic-dummy.png') }}">
                     @else
-                    <img src="{{ asset("storage/$post->image") }}" width="1000" height="500">
+                    <img src="{{ $post->image_url }}" width="1000" height="500">
                     @endif
                 </a>
                 <div class="bg-white flex flex-col justify-start p-6">
@@ -23,7 +23,6 @@
                         Published on {{ $post->created_at }}
                     </p>
                     <p class="pb-3">{!! substr($post->content, 0, 100) !!} ...</p>
-                    {{-- <br /> --}}
                     <a href="{{ route('post.show', $post->slug) }}"
                         class="mt-px uppercase text-gray-800 font-bold hover:text-black">Continue Reading <i
                             class="fas fa-arrow-right"></i></a>

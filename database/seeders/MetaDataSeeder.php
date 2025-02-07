@@ -14,10 +14,10 @@ class MetaDataSeeder extends Seeder
     public function run(): void
     {
         //
-         //
         //
-         // Define the data you want to insert into the 'information' table
-         $data = [
+        //
+        // Define the data you want to insert into the 'information' table
+        $data = [
             [
                 'key' => 'description',
                 'value' => '',

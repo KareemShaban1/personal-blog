@@ -418,7 +418,15 @@
     <!-- custom -->
     <script src="{{ asset('backend/js/custom.js') }}"></script>
 
+    <script src="https://cdn.ckeditor.com/ckeditor5/40.1.0/classic/ckeditor.js"></script>
 
+    {{-- <script>
+        ClassicEditor
+            .create(document.querySelector('textarea'), )
+            .catch(error => {
+                console.error(error);
+            });
+    </script> --}}
 
     @if (request()->routeIs('*.*.index') || request()->routeIs('*.admin.*'))
         <script src="{{ asset('backend/datatables/datatables.min.js') }}"></script>
